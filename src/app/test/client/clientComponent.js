@@ -24,6 +24,7 @@ export class ClientComponent extends React.Component {
         return (
             <div>
                 <span> client {this.state.name}</span>
+                <br/>
                 <input type="text" onChange={this.changeName} />
             </div>
         );

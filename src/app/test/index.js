@@ -1,22 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import {createBrowserHistory} from 'history';
-import { syncHistoryWithStore} from 'react-router-redux'
+import {Provider} from 'react-redux'
+import {CSSTransitionGroup} from 'react-transition-group'
 import {store} from "./redux/store";
 import ClientComponent from "./client/clientComponent";
 import ModelsComponent from "./models/modelsComponent";
-import { BrowserRouter ,Switch,
+import {
+    BrowserRouter, Switch,RouteHandler,
     Route,
-    Link} from 'react-router-dom';
+    Link
+} from 'react-router-dom';
 
 import App from "./main";
-
-const s = store;
-const browserHistory = createBrowserHistory();
-const sy = syncHistoryWithStore;
-const history = syncHistoryWithStore(browserHistory, store);
-
 
 ReactDOM.render(
     <Provider store={store}>
@@ -27,15 +22,21 @@ ReactDOM.render(
                     {' '}
                     <Link to="/">Home</Link>
                     {' '}
-                    <Link to="/clients">Clients</Link>
+                    <Link to="/app/clients">Clients</Link>
                     {' '}
-                    <Link to="/models">Models</Link>
+                    <Link to="/app/models">Models</Link>
                 </header>
-                <Switch>
-                    <Route exact path='/' component={App}/>
-                    <Route path='/clients' component={ClientComponent}/>
-                    <Route path='/models' component={ModelsComponent}/>
-                </Switch>
+
+                <Route exact path='/'>
+                    <CSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={1300}
+                        transitionLeaveTimeout={1300}>
+                        <Route  path='/app/clients' component={ClientComponent}/>
+                        <Route  path='/app/models' component={ModelsComponent}/>
+                    </CSSTransitionGroup>
+                </Route>
+
             </div>
         </BrowserRouter>
     </Provider>,

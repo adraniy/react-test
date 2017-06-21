@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './index.js',
+    entry: ['babel-polyfill', './index.js'],
     output: {
-        filename: '../../main/webapp/bundle.js'
+        filename: '../../main/webapp/static/bundle.js'
     },
     module: {
         rules: [
