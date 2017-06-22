@@ -1,23 +1,46 @@
 <html>
-  <head>
+<head>
     <title>111</title>
-    <style>body { margin: 0; }</style>
+    <style>body {
+        margin: 0;
+    }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
-      .fade-enter {
-        opacity: 0;
-        z-index: 1;
-      }
+        .page-transition-enter {
 
-      .fade-enter.fade-enter-active {
-        opacity: 1;
-        transition: opacity 250ms ease-in;
-      }
+            transition: all 1s ease;
+            position: absolute;
+            right: 100%;
+        }
+
+        .page-transition-enter.page-transition-enter-active {
+            right: 0;
+        }
+
+        .page-transition-leave {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+            position: absolute;
+        }
+
+        .page-transition-leave.page-transition-leave-active {
+            opacity: 0;
+        }
+
+        .fade-enter {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .fade-enter.fade-enter-active {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+        }
     </style>
-  </head>
-  <body>
-  <div id="root"></div>
-    <script src="/static/bundle.js"></script>
-  </body>
+</head>
+<body>
+<div id="root"></div>
+<script src="/static/bundle.js"></script>
+</body>
 </html>
 

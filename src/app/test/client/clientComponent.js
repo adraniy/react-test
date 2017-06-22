@@ -1,7 +1,7 @@
-import React from 'react';
-import * as actions from './redux/actions'
-import {connect} from "react-redux"
-import { bindActionCreators } from 'redux'
+import React from "react";
+import * as actions from "./redux/actions";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 export class ClientComponent extends React.Component {
     constructor(props) {
@@ -10,7 +10,7 @@ export class ClientComponent extends React.Component {
             name: props.name || 'default name'
         };
         this.changeName = (e) => {
-          props.actions.changeClientName(e.target.value);
+            props.actions.changeClientName(e.target.value);
         }
     }
 
@@ -25,7 +25,7 @@ export class ClientComponent extends React.Component {
             <div>
                 <span> client {this.state.name}</span>
                 <br/>
-                <input type="text" onChange={this.changeName} />
+                <input type="text" onChange={this.changeName}/>
             </div>
         );
     }
@@ -38,7 +38,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 function mapDispatchToProps(dispatch) {
-    return { actions: bindActionCreators(actions, dispatch) }
+    return {actions: bindActionCreators(actions, dispatch)}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientComponent);
