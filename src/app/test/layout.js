@@ -20,8 +20,8 @@ export default class Layout extends React.Component {
                             <Header />
                             <CSSTransitionGroup
                                 transitionName="page-transition"
-                                transitionEnterTimeout={1300}
-                                transitionLeaveTimeout={1300}>
+                                transitionEnterTimeout={1000}
+                                transitionLeaveTimeout={0}>
                                 <Switch location={location} key={location.key}>
                                     <Route render={({location}) => (
                                         <div style={{width: '100%'}}>

@@ -20,10 +20,19 @@ export class ClientComponent extends React.Component {
         }
     }
 
+    draw (){
+        let c = [];
+        for(let i = 0; i< 100; i++){
+            c.push(<div key={i}> {i} </div>);
+        }
+        return c;
+    }
+
     render() {
         return (
-            <div>
+            <div style={{border: '1px solid black', margin: '20px 20px'}}>
                 <span> client {this.state.name}</span>
+                {this.draw()}
                 <br/>
                 <input type="text" onChange={this.changeName}/>
             </div>
