@@ -6,15 +6,24 @@
     }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
+        @keyframes example {
+            0%  {right:-15px}
+            25% {right:10px}
+            50%  {right:-10px}
+            75% {right:10px}
+            100% {right: 0}
+        }
         .page-transition-enter {
-
-            transition: all 0.3s ease;
+            transition: all 0.7s ease;
             position: absolute;
             right: 100%;
         }
 
         .page-transition-enter.page-transition-enter-active {
             right: 0;
+           /* animation-delay: .31s;
+            animation-name: example;
+            animation-duration: 2s;*/
         }
 
         .page-transition-leave {
