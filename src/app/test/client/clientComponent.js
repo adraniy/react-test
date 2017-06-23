@@ -2,6 +2,7 @@ import React from "react";
 import * as actions from "./redux/actions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import {Link} from 'react-router-dom';
 
 export class ClientComponent extends React.Component {
     constructor(props) {
@@ -35,6 +36,7 @@ export class ClientComponent extends React.Component {
                 {this.draw()}
                 <br/>
                 <input type="text" onChange={this.changeName}/>
+                <Link to={"/app/clients/"+this.state.name}>Client</Link>
             </div>
         );
     }

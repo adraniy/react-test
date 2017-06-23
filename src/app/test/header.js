@@ -13,6 +13,8 @@ export default class Header extends React.Component {
                     <Link to="/app/clients">Clients</Link>
                     {' '}
                     <Link to="/app/models">Models</Link>
+                    {' '}
+                    <Link to="/app/clients/andrew">Client</Link>
                 </header>
             </div>
         );

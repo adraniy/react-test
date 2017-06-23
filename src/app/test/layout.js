@@ -4,6 +4,7 @@ import {CSSTransitionGroup} from "react-transition-group";
 
 import {store} from "./redux/store";
 import ClientComponent from "./client/clientComponent";
+import Client from "./client/client";
 import ModelsComponent from "./models/modelsComponent";
 import Header from "./header";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
@@ -27,7 +28,8 @@ export default class Layout extends React.Component {
                                         <div style={{width: '100%'}}>
                                             <Route exact path='/' component={App}/>
                                             <Route path='/app/models' component={ModelsComponent}/>
-                                            <Route path='/app/clients' component={ClientComponent}/>
+                                            <Route exact path='/app/clients' component={ClientComponent}/>
+                                            <Route path='/app/clients/:name' component={Client}/>
                                         </div>
                                     )}/>
                                 </Switch>
